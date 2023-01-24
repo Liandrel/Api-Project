@@ -1,5 +1,4 @@
-﻿using ApiProject.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TodoLibrary.Models;
 
 namespace ApiProject.Controllers;
@@ -10,21 +9,21 @@ public class TodosController : ControllerBase
 {
     // GET: api/Todos
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<ITodoModel>>> Get()
+    public async Task<ActionResult<IEnumerable<TodoModel>>> Get()
     {
         throw new NotImplementedException();
     }
 
     // GET api/Todos/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<ITodoModel>> Get(int id)
+    public async Task<ActionResult<TodoModel>> Get(int id)
     {
         throw new NotImplementedException();
     }
 
     // POST api/Todos
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] TodoApiModel value)
+    public async Task<IActionResult> Post([FromBody] string value)
     {
         throw new NotImplementedException();
 
@@ -32,7 +31,7 @@ public class TodosController : ControllerBase
 
     // PUT api/Todos/5
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, [FromBody] TodoApiModel value)
+    public async Task<IActionResult> Put(int id, [FromBody] string value)
     {
         throw new NotImplementedException();
 
