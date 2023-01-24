@@ -9,6 +9,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAuthorization(opts => AuthServices.AddAuthorizationOptions(opts));
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer(opts => AuthServices.AddJwtBearerOptions(builder, opts));
+builder.Services.AddHealthChecks()
+    .AddSqlServer(builder.Configuration.GetConnectionString("Default"));
+
+
 
 var app = builder.Build();
 
@@ -25,5 +29,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHealthChecks("/health").AllowAnonymous();
 
 app.Run();
