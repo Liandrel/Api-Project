@@ -20,9 +20,9 @@ namespace ApiProject.StartupConfig
 
         public static void AddAuthServices(this WebApplicationBuilder builder)
         {
-            builder.Services.AddAuthorization(opts => AuthOptions.AddAuthorizationOptions(opts));
+            builder.Services.AddAuthorization(opts => opts.AddAuthorizationOptions());
             builder.Services.AddAuthentication("Bearer")
-                .AddJwtBearer(opts => AuthOptions.AddJwtBearerOptions(builder, opts));
+                .AddJwtBearer(opts => opts.AddJwtBearerOptions(builder));
         }
 
         public static void AddHealthChecksServices(this WebApplicationBuilder builder)

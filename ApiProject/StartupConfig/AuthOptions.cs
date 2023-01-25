@@ -8,14 +8,14 @@ namespace ApiProject.StartupConfig;
 
 public static class AuthOptions
 {
-    public static void AddAuthorizationOptions(AuthorizationOptions opts)
+    public static void AddAuthorizationOptions(this AuthorizationOptions opts)
     {
         opts.FallbackPolicy = new AuthorizationPolicyBuilder()
             .RequireAuthenticatedUser()
             .Build();
     }
 
-    public static void AddJwtBearerOptions(WebApplicationBuilder? builder, JwtBearerOptions opts)
+    public static void AddJwtBearerOptions(this JwtBearerOptions opts, WebApplicationBuilder builder)
     {
         opts.TokenValidationParameters = new()
         {
