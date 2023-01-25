@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TodoLibrary.Models;
 
-public class TodoModel : ITodoModel
+public class TodoModel 
 {
 
     public int Id { get; set; }
