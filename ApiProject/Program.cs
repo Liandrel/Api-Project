@@ -1,16 +1,12 @@
-using ApiProject.StartupServices;
+using ApiProject.StartupConfig;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddAuthorization(opts => AuthServices.AddAuthorizationOptions(opts));
-builder.Services.AddAuthentication("Bearer")
-    .AddJwtBearer(opts => AuthServices.AddJwtBearerOptions(builder, opts));
-builder.Services.AddHealthChecks()
-    .AddSqlServer(builder.Configuration.GetConnectionString("Default"));
+builder.AddStandardServices();
+builder.AddCustomServices();
+builder.AddAuthServices();
+builder.AddHealthChecksServices();
 
 
 
