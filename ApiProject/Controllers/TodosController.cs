@@ -140,6 +140,7 @@ public class TodosController : ControllerBase
     {
         int userId = GetUserId();
 
+        _logger.LogInformation("DELETE: {ApiPath} by {UserId}. Todo Id was {TodoId}", $"api/Todos/Id", userId, todoId);
 
         try
         {
@@ -149,6 +150,7 @@ public class TodosController : ControllerBase
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, "DELETE call {ApiPath} by {UserId} has failed. Todo Id was {TodoId}", $"api/Todos/Id", userId, todoId);
 
             return StatusCode(400);
         }
